@@ -1,6 +1,8 @@
 let inputName = document.getElementById('name');
 let inputEmail = document.getElementById('email');
 const submit = document.querySelector("#submit");
+const modal = document.getElementById("modal");  // llamamos el id del modal
+const modal_body = document.getElementById("modal-body"); // llamamos la clase del modal
 
 submit.addEventListener("click", () => {
     let informacion = sessionStorage.getItem('id')
@@ -96,10 +98,15 @@ let resultado = fetch("https://memin.io/public/api/users")
 
     let detalles = document.createElement('a');
     detalles.setAttribute('href','#');
+    detalles.setAttribute ("data-bs-toggle","modal") //boton modal
+    detalles.setAttribute ("data-bs-target","#exampleModal")
     detalles.classList.add("detalles")
     detalles.textContent='Detalles'
     acciones.appendChild(detalles);
     tr.appendChild(acciones)
+    detalles.addEventListener("click", function  (){
+      modal_body.innerHTML = `<h5> id:${element.id}</h5>`
+    })
 
     //Agregamos el link (Eliminar)
 
