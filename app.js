@@ -11,8 +11,7 @@ submit.addEventListener("click", () => {
         name: inputName.value,
         email: inputEmail.value
     }
-    console.log(datos)
-
+    
     let sendFetch = fetch(`https://memin.io/public/api/users/${informacion}`,{
         method: "PUT",
         headers: {
@@ -106,13 +105,18 @@ let resultado = fetch("https://memin.io/public/api/users")
     acciones.appendChild(detalles);
     tr.appendChild(acciones)
     //agregamos el resto de los datos 
-    detalles.addEventListener("click", function  (){
-      modal_body.innerHTML = `<h5> id:${element.id}</h5>`//bueno tal parece que tengo problemas con mi id, el modal solo me muestra el name, no me tiene en cuenta el id
-      //detalles.id = `${element.id}`
-      modal_body.innerHTML = `<p> Email${element.email}</p>`
-      modal_body.innerHTML 
-    })
 
+    detalles.addEventListener("click", function  (){
+      //Estaba intentando otra manera de implementar el modal pero me falla un poco.
+      const contenidoMoldal = `<h5>ID:${id}</h5>`
+      `<p>Nombre: ${inputName}</p>`
+      `<p>Email: ${inputEmail}</p>`
+
+
+      modal_body.innerHTML = contenidoMoldal;
+    })
+                  
+    
     //Agregamos el link (Eliminar)
 
     let eliminar = document.createElement('a');
