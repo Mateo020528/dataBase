@@ -108,12 +108,19 @@ let resultado = fetch("https://memin.io/public/api/users")
 
     detalles.addEventListener("click", function  (){
       //Estaba intentando otra manera de implementar el modal pero me falla un poco.
-      const contenidoMoldal = `<h5>ID:${id}</h5>`
-      `<p>Nombre: ${inputName}</p>`
-      `<p>Email: ${inputEmail}</p>`
+      /* const userID = element.id;
+      modal_body.appendChild(userID);
+      console.log(userID); */
 
+      modal_body.innerHTML = `<h5>ID:${element.id}</h5><p>${element.name}</p><p>${element.email}</p><p>Verificar Email:${element.email_verified_at}</p>`;
+      //agregar el resto de configuraciones
+      console.log(element);
+      
+      // modal_body.innerHTML = element.name;
+      // modal_body.innerHTML = element.email;
 
-      modal_body.innerHTML = contenidoMoldal;
+      
+      
     })
                   
     
