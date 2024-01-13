@@ -100,7 +100,7 @@ let resultado = fetch("https://memin.io/public/api/users")
     let detalles = document.createElement('a');
     detalles.setAttribute('href','#');
     detalles.setAttribute ("data-bs-toggle","modal") //boton modal
-    detalles.setAttribute ("data-bs-target","#exampleModal") //boton modal detalles
+    detalles.setAttribute ("data-bs-target","#detalles-usuario") //boton modal detalles
     detalles.classList.add("detalles")
     detalles.textContent='Detalles'
     acciones.appendChild(detalles);
