@@ -3,7 +3,7 @@ let inputEmail = document.getElementById('email');
 const submit = document.querySelector("#submit");
 const modal = document.getElementById("modal");  // llamamos el id del modal
 const modal_body = document.getElementById("modal-body"); // llamamos la clase del modal
-const btnUsuario = document.getElementById("user");
+const btnUsuario = document.getElementById("user");//llamamos el id del boton usuario
 
 submit.addEventListener("click", () => {
     let informacion = sessionStorage.getItem('id')
@@ -108,11 +108,7 @@ let resultado = fetch("https://memin.io/public/api/users")
     //agregamos el resto de los datos 
 
     detalles.addEventListener("click", function  (){
-      //Estaba intentando otra manera de implementar el modal pero me falla un poco.
-      /* const userID = element.id;
-      modal_body.appendChild(userID);
-      console.log(userID); */
-
+  
       modal_body.innerHTML = `<h5>ID:${element.id}</h5>
       <p>Nombre de usuario: ${element.name}</p>
       <p>Correo Electronico: ${element.email}</p>
@@ -151,6 +147,8 @@ let resultado = fetch("https://memin.io/public/api/users")
 
     // detalles.setAttribute ("data-bs-toggle","modal") //boton modal crear usuario 
     // detalles.setAttribute ("data-bs-target","#exampleModal") //boton modal crear usuario 
+    //Aqui voy a hacer la logica de mi login
+    
 
     }); 
 
