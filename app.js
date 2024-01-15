@@ -31,7 +31,6 @@ submit.addEventListener("click", () => {
       },
       body: JSON.stringify(datos)
   })
-  .then(alert(`El id ${sessionStorage.getItem("id")} se ha actualizado correctamente`));
     } else {
       
     let sendFetch = fetch(`https://memin.io/public/api/users/${informacion}`,{
@@ -55,7 +54,7 @@ let resultado = fetch("https://memin.io/public/api/users")
   .then((data) => {
     //creamos lo elementos
     data.forEach(function (element) {
-      // console.log(element.name)//n Este console.log es para mostrar cada nombre de nuestro usuario en consola.
+       console.log(element.name)//n Este console.log es para mostrar cada nombre de nuestro usuario en consola.
       //crear un tr y agregarlo al los td
     let tr = document.createElement("tr");
     let td = document.createElement("td");  
