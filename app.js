@@ -4,6 +4,8 @@ const submit = document.querySelector("#submit");
 const modal = document.getElementById("modal");  // llamamos el id del modal
 const modal_body = document.getElementById("modal-body"); // llamamos la clase del modal
 const btnUsuario = document.getElementById("user");//llamamos el id del boton usuario
+const loading = document.querySelector(".spinner-border");
+const search = document.getElementById("search");
 
 submit.addEventListener("click", () => {
     let informacion = sessionStorage.getItem('id')
@@ -54,7 +56,7 @@ let resultado = fetch("https://memin.io/public/api/users")
   .then((data) => {
     //creamos lo elementos
     data.forEach(function (element) {
-       console.log(element.name)//n Este console.log es para mostrar cada nombre de nuestro usuario en consola.
+       //console.log(element.name)//n Este console.log es para mostrar cada nombre de nuestro usuario en consola.
       //crear un tr y agregarlo al los td
     let tr = document.createElement("tr");
     let td = document.createElement("td");  
@@ -114,7 +116,7 @@ let resultado = fetch("https://memin.io/public/api/users")
       <p>Email Verficado:${element.email_verified_at}</p>
       <p>Password: ${element.password}</p>`;
       //agregar el resto de configuraciones
-      console.log(element);
+      
       
     })
                   
@@ -149,10 +151,55 @@ let resultado = fetch("https://memin.io/public/api/users")
     //Aqui voy a hacer la logica de mi login
     
 
-    }); 
-
+  }); 
+  loading.parentNode.removeChild(loading);
 });
 
+search.addEventListener("keyup",() => {
+    for (tr of tbody.childNodes){
+        const name = tr.children[1].textContent.toLowerCase()
+        if (name.includes(search.value)){
+            tr.style="display: table-row;"
+        }else{
+            tr.style="display: none;"
+        }
+    }
+})
 
 
 
+
+
+
+
+
+// window.addEventListener("keypress", (e) => {
+//   console.log(e);
+//   console.log(e.ctrlKey);
+  
+//   if(e.ctrlKey && e.key === "a") {
+//       location.reload(true)
+//       copnsole
+      
+//   }
+//   if(e.key === "r") {
+//       location.reload()
+
+//   }else if(e.key === ("y")){
+//       location.href = "https://youtube.com"
+
+//   } else if (e.key === ("f")){
+//       location.href = "https://facebook.com"
+//   }
+// })
+// /////////////////////////recargar pagina con 2 teclas //////////////////////////////
+// window.addEventListener("keydown", (e) => { 
+
+  
+//   if(e.ctrlKey){
+//       if(e.key.toLocaleLowerCase() == 'c'){
+//           alert("recargar?")
+//           window.location.href = 'index.html';
+//       }
+//   }
+// })
